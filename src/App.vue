@@ -1,47 +1,48 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <div class="todo-container">
+          <div class="todo-app">
+              <div class="header">
+                <h1>Todo App</h1>
+              </div>
+              <TaskDone></TaskDone>
+            <div class="todo-input">
+                  <TaskInput></TaskInput>
+            </div>
+          </div>
+      
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
 </template>
 
+<script>
+import TaskInput from './components/TaskInput.vue'
+import TaskDone from './components/TaskDone.vue'
+  
+export default {
+  name: 'App',
+  components: {
+    TaskInput,
+    TaskDone,
+  },
+}
+
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
-}
+ .todo-container{
+   width: 500px;
+   height:100vh;
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+   display: flex;
+   justify-content: center;
+   background-color: #0D0D0D;
+   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+   border-radius: 10px;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.header{
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    padding:12px;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
 </style>
