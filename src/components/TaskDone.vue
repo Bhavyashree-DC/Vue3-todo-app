@@ -23,8 +23,8 @@
     align-items: center;
     justify-content: space-between;
     
-    padding:50px;
-    margin:20px 30px;
+    padding:40px;
+    margin: 30px;
     color:#fff;
     border:2px solid lightgray;
     border-radius: 24px;

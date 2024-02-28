@@ -5,23 +5,26 @@
                 <h1>Todo App</h1>
               </div>
               <TaskDone></TaskDone>
-            <div class="todo-input">
-                  <TaskInput></TaskInput>
-            </div>
+              <el-button>I am ElButton</el-button>
+              <div class="todo-input">
+                    <TaskInput></TaskInput>
+                    <TaskList></TaskList>
+              </div>
           </div>
-      
-    </div>
+      </div>
 </template>
 
 <script>
 import TaskInput from './components/TaskInput.vue'
 import TaskDone from './components/TaskDone.vue'
+import TaskList from './components/TaskList.vue'
   
 export default {
   name: 'App',
   components: {
     TaskInput,
     TaskDone,
+    TaskList,
   },
 }
 
@@ -29,8 +32,9 @@ export default {
 
 <style scoped>
  .todo-container{
+  margin:10px;
    width: 500px;
-   height:100vh;
+   height:900px;
 
    display: flex;
    justify-content: center;
