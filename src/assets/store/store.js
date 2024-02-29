@@ -52,4 +52,7 @@ const deleteTask = (taskId) =>{
         store.value.tasks.splice(index, 1);
     }
 }
-export { store, getters, addTask, deleteTask};
+const deleteAllTasks = () =>{
+   store.value.tasks = [];
+}
+export { store, getters, addTask, deleteTask,deleteAllTasks};
