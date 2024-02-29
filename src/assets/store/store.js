@@ -14,20 +14,10 @@ const store = ref({
       isCompleted: true,
       isEditing: true,
     },
-    {
-      id: 1,
-      todoName: 'Task1',
-      isCompleted: false,
-      isEditing: false,
-    },
-    {
-      id: 2,
-      todoName: 'Task2',
-      isCompleted: true,
-      isEditing: true,
-    },
   ],
+
   filter:'all',
+  
 });
 
 // Define getters using computed properties
@@ -43,4 +33,12 @@ const getters = {
   }),
 };
 
-export { store, getters };
+const addTask = (taskName) => {
+   store.value.tasks.push({
+      id:store.value.tasks.length + 1,
+      todoName: taskName,
+      isCompleted: false,
+      isEditing: false,
+   });
+};
+export { store, getters, addTask };
