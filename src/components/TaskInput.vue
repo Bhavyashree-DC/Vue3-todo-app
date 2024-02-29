@@ -1,14 +1,32 @@
 <template>
     <div class="input-field">
-        <input type="text" placeholder="Enter Task Here....">
-        <i class="ri-add-circle-fill"></i>
-    </div>
+      <el-input v-model="input" 
+      placeholder="What needs to be done?" 
+      clearable />
+        <!-- <el-row class="demo-autocomplete">
+            <el-col :span="30">
+            <h5>
+                list suggestions when activated
+            </h5>
+            <el-autocomplete
+                v-model="state1"
+                :fetch-suggestions="querySearch"
+                clearable
+                class="inline-input w-50"
+                placeholder="Please Input"
+                @select="handleSelect"
+            />
+            </el-col>
+        </el-row>-->
+    </div> 
 </template>
 
-<script>
-    export default {
-        name:'TaskInput'
-    }
+<script setup>
+
+import { ref } from 'vue';
+
+const input = ref('')
+
 </script>
 
 <style scoped>
@@ -20,9 +38,9 @@
      gap:10px;
      padding:30px 0px;
 }
-.input-field input{
-    width: 400px;
-    height: 60px;
+.el-input{
+    width: 460px;
+    height: 70px;
     border-radius: 20px;
     padding:10px;
     background-color: #2d2c2c;
@@ -31,6 +49,7 @@
     color: #fff;
     font-size: 20px;
 }
+
 ::placeholder{
     font-size: 20px;
 }
