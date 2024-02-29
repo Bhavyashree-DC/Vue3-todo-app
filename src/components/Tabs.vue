@@ -3,14 +3,14 @@
         <el-row>      
             <el-button type="success" :icon="Check" circle @click="showCompleted" />
             <el-button type="warning" :icon="Eleme" @click="showActive" circle />
-            <el-button type="danger" :icon="Delete" circle />
+            <el-button type="danger" :icon="Delete" @click="deleteAllTasks" circle />
         </el-row>
     </div>
 </template>
 
 <script  setup>
 import { Check, Delete,Eleme} from '@element-plus/icons-vue'
-import { store } from '../assets/store/store'
+import { store,deleteAllTasks} from '../assets/store/store'
 
 const showCompleted =() =>{
     store.value.filter = 'completed'

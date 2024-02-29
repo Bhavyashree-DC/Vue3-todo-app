@@ -14,7 +14,7 @@
 <script setup> 
 
     import { getters } from '../assets/store/store';
-    
+
     const { completedTask,totalTask } = getters;
 
 </script>
@@ -47,7 +47,7 @@
 }
 .done-result{
     background-color:#FF5631;
-    padding:40px;
+    padding:30px 24px;
     border-radius: 100%;
 }
 .done-result p{
