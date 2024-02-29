@@ -15,7 +15,7 @@
               <TaskDone></TaskDone>
               <div class="todo-input">
                     <TaskInput></TaskInput>
-                    <ListHeader></ListHeader>
+                    <Tabs></Tabs>
                     <TaskList></TaskList>
               </div>
           </div>
@@ -26,7 +26,7 @@
 import TaskInput from './components/TaskInput.vue'
 import TaskDone from './components/TaskDone.vue'
 import TaskList from './components/TaskList.vue'
-import ListHeader from './components/ListHeader.vue'
+import Tabs from './components/Tabs.vue'
 
 import { ref } from 'vue'
 

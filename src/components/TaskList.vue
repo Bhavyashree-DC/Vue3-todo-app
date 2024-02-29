@@ -4,17 +4,18 @@
                 <li v-for="task in tasks" :key="task.id">
                     <div :class="{'list-items': true, 'completed': task.isCompleted }">
                         <div class="task-items">
-                            <el-checkbox v-model="checked1" size="large" />
-                            {{ task.todoName }}
+                            <el-checkbox v-model="task.isCompleted" size="large" />
+                            <span :style="{ 'text-decoration': task.isCompleted ? 'line-through' : 'none' }">
+                                {{ task.todoName }}
+                            </span>
                         </div>
                         <div class="edit-icons">
-                            <el-button type="primary" :icon="Edit" circle />
+                            <el-button type="primary" :icon="Edit" circle @click="deleteTask()" />
                             <el-button type="danger" :icon="CircleClose" circle />
                         </div>
                     </div>
                 </li>
            </ul>
-      
     </div>
 </template>
 
