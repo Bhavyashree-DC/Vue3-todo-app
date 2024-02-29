@@ -5,16 +5,18 @@
             <h5>Keep it up</h5>
         </div>
         <div class="done-result">
-           <p>/10</p>
+            <p>{{ completedTask}} / {{ totalTask }}</p>
         </div>
         
     </div>
 </template>
 
-<script>
-    export default {
-        name:'TaskDone',
-    }
+<script setup> 
+
+    import { getters } from '../assets/store/store';
+    
+    const { completedTask,totalTask } = getters;
+
 </script>
 
 <style scoped>

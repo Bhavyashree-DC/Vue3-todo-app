@@ -21,6 +21,7 @@ const store = ref({
 });
 
 // Define getters using computed properties
+
 const getters = {
   allTasks: computed(() => store.value.tasks),
 
@@ -31,6 +32,9 @@ const getters = {
     if (filter === 'active') return store.value.tasks.filter(task => !task.isCompleted);
     return [];
   }),
+
+  completedTask: computed(() => store.value.tasks.filter(task => task.isCompleted).length),
+  totalTask: computed(() => store.value.tasks.length)
 };
 
 const addTask = (taskName) => {
@@ -41,4 +45,11 @@ const addTask = (taskName) => {
       isEditing: false,
    });
 };
-export { store, getters, addTask };
+
+const deleteTask = (taskId) =>{
+    const index = store.value.tasks.findIndex(task => task.id === taskId);
+    if(index !== -1){
+        store.value.tasks.splice(index, 1);
+    }
+}
+export { store, getters, addTask, deleteTask};

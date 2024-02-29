@@ -10,8 +10,8 @@
                             </span>
                         </div>
                         <div class="edit-icons">
-                            <el-button type="primary" :icon="Edit" circle @click="deleteTask()" />
-                            <el-button type="danger" :icon="CircleClose" circle />
+                            <el-button type="primary" :icon="Edit" circle />
+                            <el-button type="danger" :icon="CircleClose" circle  @click="deleteItem(task.id)" />
                         </div>
                     </div>
                 </li>
@@ -21,14 +21,18 @@
 
 <script setup>
 import { computed } from 'vue';
-import { getters,store} from '../assets/store/store';
+import { getters,store,deleteTask} from '../assets/store/store';
 import { Edit,CircleClose} from '@element-plus/icons-vue'
 
-const { allTasks, filteredTasks } = getters;
+const { allTasks, filteredTasks} = getters;
+
 const tasks = computed(() => {
   return store.value.filter === 'all' ? allTasks.value : filteredTasks.value;
 });
 
+const deleteItem = (id) => {
+    deleteTask(id);
+}
 </script>
 
 <style  lang="scss" scoped>
