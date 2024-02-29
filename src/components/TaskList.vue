@@ -1,57 +1,67 @@
 <template>
     <div class="task-list">
-       <h3>All Tasks</h3>
-       <div class="lists">
            <ul>
                 <li v-for="task in tasks" :key="task.id">
-                    {{ task.todoName }}
-                        <i class="ri-edit-circle-fill edit-icon" @click="editTask(task)"></i>
-                        <i class="ri-delete-bin-4-fill delete-icon" @click="deleteTask(task)"></i>
+                    <div :class="{'list-items': true, 'completed': task.isCompleted }">
+                        <div class="task-items">
+                            <el-checkbox v-model="checked1" size="large" />
+                            {{ task.todoName }}
+                        </div>
+                        <div class="edit-icons">
+                            <el-button type="primary" :icon="Edit" circle />
+                            <el-button type="danger" :icon="CircleClose" circle />
+                        </div>
+                    </div>
                 </li>
            </ul>
-       </div>
+      
     </div>
 </template>
 
 <script setup>
-import { getters } from '../assets/store/store';
+import { computed } from 'vue';
+import { getters,store} from '../assets/store/store';
+import { Edit,CircleClose} from '@element-plus/icons-vue'
 
-const tasks = getters.allTasks;
+const { allTasks, filteredTasks } = getters;
+const tasks = computed(() => {
+  return store.value.filter === 'all' ? allTasks.value : filteredTasks.value;
+});
+
 </script>
 
 <style  lang="scss" scoped>
    .task-list{
-        h3{
-            color:white;
-        }
-        .lists{
+        .list-items{
             width:450px;
-            height:60px;
+            height:65px;
             background-color:#2d2c2c;
+            color: white;
             border-radius: 10px;
             margin:20px 0px;
+
+            list-style:none;
 
             display: flex;
             align-items: center;
             justify-content:space-between;
-    
-            ul{
-                list-style: none;
-                color: white;
-                padding:15px;
-             }
-             .task-container {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-
-                .edit-icon,
-                .delete-icon {
-                margin-right: 10px;
-                cursor: pointer;
-                }
+            padding:24px 10px;
+               .task-items,
+               .edit-icons{
+                   padding: 10px 14px;
+                   display: flex;
+                   align-items: center;
+                   justify-content: space-between;
+                   gap:10px;
+                   font-size: 1.3rem;
+                   cursor:pointer;
+               }
+               &.completed{
+                 text-decoration: line-through;
+               }
+        
             }
-        }
+          
         
    }
    
