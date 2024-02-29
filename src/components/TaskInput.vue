@@ -2,30 +2,27 @@
     <div class="input-field">
       <el-input v-model="input" 
       placeholder="What needs to be done?" 
+      @keyup.enter="handleEnter"
       clearable />
-        <!-- <el-row class="demo-autocomplete">
-            <el-col :span="30">
-            <h5>
-                list suggestions when activated
-            </h5>
-            <el-autocomplete
-                v-model="state1"
-                :fetch-suggestions="querySearch"
-                clearable
-                class="inline-input w-50"
-                placeholder="Please Input"
-                @select="handleSelect"
-            />
-            </el-col>
-        </el-row>-->
     </div> 
 </template>
 
 <script setup>
 
 import { ref } from 'vue';
+import { addTask } from '../assets/store/store'
 
 const input = ref('')
+const handleEnter = () => {
+  if (!input.value.trim()) {
+    alert('Please enter the input!');
+    return;
+  }
+
+  addTask(input.value.trim());
+
+  input.value = '';
+};
 
 </script>
 
