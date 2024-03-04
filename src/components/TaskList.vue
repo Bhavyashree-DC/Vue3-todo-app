@@ -20,8 +20,9 @@
 </template>
 
 <script setup>
+
 import { computed } from 'vue';
-import { getters,store,deleteTask} from '../assets/store/store';
+import { getters, store, deleteTask } from '../assets/store/store';
 import { Edit,CircleClose} from '@element-plus/icons-vue'
 
 const { allTasks, filteredTasks} = getters;
@@ -51,6 +52,9 @@ const deleteItem = (id) => {
             align-items: center;
             justify-content:space-between;
             padding:24px 10px;
+            ul li{
+              list-style: none;
+            }
                .task-items,
                .edit-icons{
                    padding: 10px 14px;

@@ -13,7 +13,7 @@
 
 <script setup> 
 
-    import { getters } from '../assets/store/store';
+    import { getters } from '../assets/store/store'
 
     const { completedTask,totalTask } = getters;
 
