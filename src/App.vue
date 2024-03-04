@@ -7,13 +7,7 @@
                 />
                 <h1>Todo App</h1>
               </div>
-              <div v-if="isCalendarVisible" class="calendar-container">
-                <el-icon><Back @click="toggleCalendar"/></el-icon>
-                  <el-calendar v-model="value" />
-              </div>
-              <div class="selected-date">
-                   <h2> {{ formatDate(value) }} </h2>
-              </div>
+              <CalendarView></CalendarView>
               <TaskDone></TaskDone>
               <div class="todo-input">
                     <TaskInput></TaskInput>
@@ -26,6 +20,7 @@
 
 <script setup>
 import { Close as IconView } from '@element-plus/icons-vue'
+import 
 
 
 import { ref } from 'vue'

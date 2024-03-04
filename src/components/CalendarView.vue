@@ -10,13 +10,13 @@
     </div>
 </template>
 
-<!-- <script setup>
+<script setup>
 
-import {toggleCalendarMixin} from '../assets/mixins/mixin'
+import {toggleCalendarMixin} from '../mixins/mixin'
 
 const {value,isCalendarVisible,toggleCalendar,formatDate } = {toggleCalendarMixin}
 
-</script> -->
+</script>
 
 <style lang="scss" scoped>
   .el-calendar{
